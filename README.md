@@ -40,4 +40,6 @@ SS/SDA (Slave select) <-> D4
 
 
 
+Buzzer: Positive (+) <-> D2, Negative (-) <-> GND
+
 # Attendance-Monitoring-system-Esp8266-

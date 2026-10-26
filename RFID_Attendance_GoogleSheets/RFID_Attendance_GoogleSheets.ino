@@ -20,9 +20,9 @@
 #define RST_PIN  D3
 #define SS_PIN   D4
 
-// Optional buzzer (set to true if you have a buzzer connected to D8)
-#define ENABLE_BUZZER false
-#define BUZZER_PIN    D8
+// Buzzer configuration (connected to D2)
+#define ENABLE_BUZZER true
+#define BUZZER_PIN    D2
 
 // ---------------- Wi-Fi Credentials ----------------
 const char* WIFI_SSID     = "ksp's network";
