@@ -1,0 +1,43 @@
+// Smart Attendance System - Google Apps Script
+// Paste this code into: Google Sheets -> Extensions -> Apps Script
+
+var timezone = "Asia/Kolkata"; // Adjust timezone if needed
+
+function doGet(e) {
+  try {
+    // If bound to a Google Sheet:
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    
+    // If using standalone Apps Script, uncomment the line below and insert your Sheet ID:
+    // var ss = SpreadsheetApp.openById('YOUR_SPREADSHEET_ID_HERE');
+    
+    if (!ss) {
+      return ContentService.createTextOutput("Error: Could not open spreadsheet.");
+    }
+    
+    var sheet = ss.getSheetByName('Sheet1') || ss.getSheets()[0];
+    
+    // Check if query parameter exists
+    if (!e || !e.parameter || !e.parameter.name) {
+      return ContentService.createTextOutput("Warning: No name parameter received.");
+    }
+    
+    var name = e.parameter.name.toString().trim();
+    
+    // Add headers if sheet is empty
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["Date", "Time", "Card Holder / Tag UID"]);
+    }
+    
+    var now = new Date();
+    var dateStr = Utilities.formatDate(now, timezone, "yyyy-MM-dd");
+    var timeStr = Utilities.formatDate(now, timezone, "HH:mm:ss");
+    
+    // Append attendance record
+    sheet.appendRow([dateStr, timeStr, name]);
+    
+    return ContentService.createTextOutput("Success: Recorded attendance for " + name);
+  } catch (err) {
+    return ContentService.createTextOutput("Error: " + err.toString());
+  }
+}
