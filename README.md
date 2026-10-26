@@ -15,7 +15,7 @@ Utilizing IoT devices like NodeMCU, the system connects RFID readers to the inte
 NodeMCU is an open-source Lua based firmware and development board specially targeted for IoT based Applications. It includes firmware that runs on the ESP8266 Wi-Fi SoC from Espressif Systems, and hardware which is based on the ESP-12 module.
 
 ## NodeMCU(ESP8266)
-![](https://www.ijraset.com/images/text_version_uploads/imag%201_25517.png)
+
 The RC522 RFID module based on the MFRC522 IC from NXP is one of the cheapest RFID options you can get. It usually comes with an RFID card tag and a key fob tag with 1KB of memory. And the best part is that it can write a tag that means you can store any message in it.
 
 ## Connections:
